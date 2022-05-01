@@ -1,0 +1,5 @@
+resolver: lts-18.28
+nix:
+  packages:
+    - secp256k1
+    - pkg-config

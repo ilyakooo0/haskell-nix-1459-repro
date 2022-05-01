@@ -1,0 +1,49 @@
+name: secp256k1-haskell
+version: 0.6.1
+synopsis: Bindings for secp256k1
+description: Sign and verify signatures using the secp256k1 library.
+category: Crypto
+author: Jean-Pierre Rupp
+maintainer: jprupp@protonmail.ch
+copyright: (c) 2017 Jean-Pierre Rupp
+license: MIT
+license-file: LICENSE
+github: haskoin/secp256k1-haskell.git
+homepage: http://github.com/haskoin/secp256k1-haskell#readme
+extra-source-files:
+  - CHANGELOG.md
+  - README.md
+dependencies:
+  - base >=4.9 && <5
+  - base16 >=0.3.0.1
+  - bytestring >=0.10.8 && <0.12
+  - cereal >=0.5.4 && <0.6
+  - entropy >=0.3.8 && <0.5
+  - deepseq >=1.4.2 && <1.5
+  - hashable >=1.2.6 && <1.5
+  - QuickCheck >=2.9.2 && <2.15
+  - string-conversions >=0.4 && <0.5
+  - unliftio-core >=0.1.0 && <0.3 
+library:
+  source-dirs: src
+  generated-exposed-modules:
+    - Paths_secp256k1_haskell
+  pkg-config-dependencies:
+    - libsecp256k1
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    verbatim:
+      build-tool-depends:
+          hspec-discover:hspec-discover
+    dependencies:
+      - hspec
+      - secp256k1-haskell
+      - monad-par
+      - mtl
+      - HUnit

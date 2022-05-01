@@ -1,0 +1,9 @@
+
+resolver: nightly-2022-04-28
+
+packages:
+  - .
+
+extra-deps:
+  - extra-deps/secp256k1-haskell
+  - haskoin-core-0.21.2
